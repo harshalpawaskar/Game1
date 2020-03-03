@@ -475,12 +475,12 @@ GameObject:
   m_Component:
   - component: {fileID: 153990924}
   m_Layer: 5
-  m_Name: WonResult
+  m_Name: PassedResultButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &153990924
 RectTransform:
   m_ObjectHideFlags: 0
@@ -942,11 +942,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -1790,7 +1790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.98823535, g: 0.76470596, b: 0.04705883, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2317,7 +2317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.995283, b: 0.995283, a: 1}
+  m_Color: {r: 1, g: 0.770661, b: 0.042452812, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2983,11 +2983,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -3142,7 +3142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &916611755
 Transform:
   m_ObjectHideFlags: 0
@@ -3436,7 +3436,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 33
+  far clip plane: 34.5
   field of view: 68.8
   orthographic: 0
   orthographic size: 5
@@ -3462,13 +3462,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.07455766, y: -0, z: -0, w: 0.9972167}
-  m_LocalPosition: {x: 0, y: 4.5, z: -7.75}
+  m_LocalRotation: {x: 0.20146255, y: -0, z: -0, w: 0.9794963}
+  m_LocalPosition: {x: 0, y: 5.22, z: -6.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1282738676}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 8.552, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 23.245, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3498,7 +3498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1022653407
 Transform:
   m_ObjectHideFlags: 0
@@ -3532,6 +3532,8 @@ MonoBehaviour:
   score: {fileID: 1098435063}
   totalScore: {fileID: 1683604384}
   highScore: {fileID: 487028139}
+  failedResultButtons: {fileID: 1351240404}
+  passedResultButtons: {fileID: 153990923}
 --- !u!1 &1035915304
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,7 +3549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1035915305
 Transform:
   m_ObjectHideFlags: 0
@@ -3813,7 +3815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.995283, b: 0.995283, a: 1}
+  m_Color: {r: 1, g: 0.7725491, b: 0.043137256, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4048,11 +4050,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a30f933bed2f6504bae572c0ef6aaeb7, type: 3}
-    m_FontSize: 96
+    m_FontSize: 45
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 4
-    m_MaxSize: 96
+    m_MinSize: 0
+    m_MaxSize: 224
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4609,11 +4611,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -4746,7 +4748,7 @@ MonoBehaviour:
   moveSpeed: 625
   scoreChange: {fileID: 1098435065}
   resultPanel: {fileID: 1022653406}
-  WonOrLost: {fileID: 1022653408}
+  wonOrLost: {fileID: 1022653408}
   count: 0
 --- !u!54 &1282738678
 Rigidbody:
@@ -5120,7 +5122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1351240405}
   m_Layer: 5
-  m_Name: LostResult
+  m_Name: FailedResultButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5546,7 +5548,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -5888,6 +5890,7 @@ MonoBehaviour:
   location: {fileID: 1282738676}
   highScores: 00000000000000000000000000000000
   wonOrLost: {fileID: 1022653408}
+  resultPanel: {fileID: 1022653406}
 --- !u!1 &1620568741
 GameObject:
   m_ObjectHideFlags: 0
@@ -6047,7 +6050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.7725491, b: 0.043137256, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

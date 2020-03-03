@@ -17,7 +17,9 @@ public class GameController : MonoBehaviour
 
     public List<int> highScores = new List<int>();
 
-    public WonOrLost wonOrLost; 
+    public WonOrLost wonOrLost;
+
+    public GameObject resultPanel;
 
     private void Awake()
     {
@@ -46,9 +48,20 @@ public class GameController : MonoBehaviour
             GameObject gameObject = GameObject.FindGameObjectWithTag("PressEnterPanel");
             gameObject.SetActive(false); 
         }*/
+        if (player.count == 3)
+        {
+            resultPanel.SetActive(true);
+            if (location.position.z < 425)
+            {
+                wonOrLost.ShowResult(false);
+            }
+            Time.timeScale = 0;
+        }
         if (location.position.z >= 425)
         {
             Time.timeScale = 0;
+            resultPanel.SetActive(true);
+            wonOrLost.ShowResult(true);
             int i = SceneManager.GetActiveScene().buildIndex;
             highScores[i] = wonOrLost.ReturnHighScore();
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);

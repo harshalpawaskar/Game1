@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject resultPanel;
 
-    public WonOrLost WonOrLost;
+    public WonOrLost wonOrLost;
 
     private int obstacleNo;
 
@@ -46,20 +46,20 @@ public class PlayerMovement : MonoBehaviour
     [Obsolete]
     void Update()
     {
-        if (count == 3)
+        /*if (count == 3)
         {
             resultPanel.SetActive(true);
             if(gameObject.transform.position.z < 425)
             {
-                WonOrLost.ShowResult(false);
+                wonOrLost.ShowResult(false);
             }
             Time.timeScale = 0;
         }
         if (gameObject.transform.position.z >= 425)
         {
             resultPanel.SetActive(true);
-            WonOrLost.ShowResult(true);
-        }
+            wonOrLost.ShowResult(true);
+        }*/
         FallFunction();
 
         //Checking if player has passed the obstacle or not

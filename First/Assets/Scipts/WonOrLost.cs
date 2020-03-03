@@ -17,19 +17,25 @@ public class WonOrLost: MonoBehaviour
 
     public Text highScore;
 
+    public GameObject failedResultButtons;
+
+    public GameObject passedResultButtons;
+
     public void ShowResult(bool result)
     {
         totalScore.text = score.text;
         if (result)
         {
-            resultText.text = "YOU WON";
+            resultText.text = "RESPECT + +";
             if (int.Parse(highScore.text) < int.Parse(totalScore.text))
                 highScore.text = totalScore.text;
             highScoreNo = int.Parse(highScore.text);
+            passedResultButtons.SetActive(true);
         }
         else
         {
-            resultText.text = "YOU LOST";
+            resultText.text = "RESPECT - -";
+            failedResultButtons.SetActive(true);
         }
     }
 
