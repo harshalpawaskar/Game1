@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    public GameObject moveButtons;
+
     public GameObject pause;
 
     public GameObject PressEnterPanel;
@@ -15,11 +18,13 @@ public class GameController : MonoBehaviour
 
     public Transform location;
 
-    public List<int> highScores = new List<int>();
-
     public WonOrLost wonOrLost;
 
     public GameObject resultPanel;
+
+    public Text highScore;
+
+    public int endLine;
 
     private void Awake()
     {
@@ -29,7 +34,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        
+        highScore.text = PlayerPrefs.GetFloat("HighScore").ToString();
     }
 
     void Update()
@@ -40,6 +45,7 @@ public class GameController : MonoBehaviour
             {
                 Time.timeScale = 0;
                 pause.SetActive(true);
+                moveButtons.SetActive(false);
             }
         }
         /*if (Input.GetKeyDown(KeyCode.Return))
@@ -51,19 +57,19 @@ public class GameController : MonoBehaviour
         if (player.count == 3)
         {
             resultPanel.SetActive(true);
-            if (location.position.z < 425)
+            if (location.position.z < endLine)
             {
                 wonOrLost.ShowResult(false);
             }
+            moveButtons.SetActive(false);
             Time.timeScale = 0;
         }
-        if (location.position.z >= 425)
+        if (location.position.z >= endLine)
         {
             Time.timeScale = 0;
             resultPanel.SetActive(true);
             wonOrLost.ShowResult(true);
-            int i = SceneManager.GetActiveScene().buildIndex;
-            highScores[i] = wonOrLost.ReturnHighScore();
+            moveButtons.SetActive(false);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }

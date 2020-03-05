@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public string menu = "Menu";
-    public void PlayGame()
+    public int level;
+
+    public void PlayLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(level);
     }
 
     public void ExitGame()
@@ -26,4 +27,5 @@ public class Menu : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
 }

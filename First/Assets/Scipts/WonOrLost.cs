@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WonOrLost: MonoBehaviour
 {
     public GameObject player;
-
-    public int highScoreNo;
 
     public Text resultText;
 
@@ -23,24 +22,35 @@ public class WonOrLost: MonoBehaviour
 
     public void ShowResult(bool result)
     {
+        PlayerPrefs.SetFloat("HighScore", int.Parse(highScore.text));
         totalScore.text = score.text;
         if (result)
         {
             resultText.text = "RESPECT + +";
-            if (int.Parse(highScore.text) < int.Parse(totalScore.text))
+            resultText.color = Color.green;
+            if (int.Parse(highScore.text) <= int.Parse(totalScore.text))
+            {
                 highScore.text = totalScore.text;
-            highScoreNo = int.Parse(highScore.text);
+                PlayerPrefs.SetFloat("HighScore", int.Parse(highScore.text));
+            }
             passedResultButtons.SetActive(true);
         }
         else
         {
             resultText.text = "RESPECT - -";
+            resultText.color = Color.red;
             failedResultButtons.SetActive(true);
         }
     }
 
-    public int ReturnHighScore()
+    [System.Obsolete]
+    public void RetryLevel()
     {
-        return highScoreNo;
+        SceneManager.LoadScene(Application.loadedLevel);
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

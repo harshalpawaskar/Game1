@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         animator = GetComponent<Animator>();
         newRigidbody = GetComponent<Rigidbody>();
     }
@@ -46,20 +47,6 @@ public class PlayerMovement : MonoBehaviour
     [Obsolete]
     void Update()
     {
-        /*if (count == 3)
-        {
-            resultPanel.SetActive(true);
-            if(gameObject.transform.position.z < 425)
-            {
-                wonOrLost.ShowResult(false);
-            }
-            Time.timeScale = 0;
-        }
-        if (gameObject.transform.position.z >= 425)
-        {
-            resultPanel.SetActive(true);
-            wonOrLost.ShowResult(true);
-        }*/
         FallFunction();
 
         //Checking if player has passed the obstacle or not

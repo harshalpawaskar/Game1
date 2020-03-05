@@ -48,9 +48,9 @@ public class Move : MonoBehaviour
         if (Input.touchCount > 0)
         {
             if (Input.GetTouch(0).position.x > screenWidth / 2)
-                newRigidbody.AddForce(900 * Time.deltaTime, 0, 0);
+                newRigidbody.AddForce(1000 * Time.deltaTime, 0, 0);
             if (Input.GetTouch(0).position.x < screenWidth / 2)
-                newRigidbody.AddForce(-900 * Time.deltaTime, 0, 0);
+                newRigidbody.AddForce(-1000 * Time.deltaTime, 0, 0);
         }
     }
 }
