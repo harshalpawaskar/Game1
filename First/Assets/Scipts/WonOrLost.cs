@@ -7,17 +7,11 @@ using UnityEngine.UI;
 public class WonOrLost: MonoBehaviour
 {
     public GameObject player;
-
     public Text resultText;
-
     public Text score;
-
     public Text totalScore;
-
     public Text highScore;
-
     public GameObject failedResultButtons;
-
     public GameObject passedResultButtons;
 
     public void ShowResult(bool result)

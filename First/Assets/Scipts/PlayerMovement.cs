@@ -5,23 +5,15 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody newRigidbody;
-
     public float moveSpeed;
-
-    Animator animator;
-
     public Score scoreChange;
-
-    private bool firstStrike = false;
-
     public GameObject resultPanel;
-
     public WonOrLost wonOrLost;
-
-    private int obstacleNo;
-
     public int count = 0;
+    Animator animator;
+    private Rigidbody newRigidbody; 
+    private bool firstStrike = false;
+    private int obstacleNo;
 
     private void Awake()
     {
@@ -99,35 +91,5 @@ public class PlayerMovement : MonoBehaviour
             scoreChange.subScore(count * obstacleNo * 10);
             animator.SetTrigger("Trigger1");
         }
-        /*if (collision.gameObject.tag == "Obstacle" && count != 0)
-        {
-            if (obstacleName == collision.gameObject.name && count < 4)
-            {
-                newRigidbody.AddForce(0, 0, -moveSpeed / 2 * Time.deltaTime, ForceMode.Impulse);
-                scoreChange.subScore(count * 10);
-                count++;
-                animator.SetTrigger("Trigger1");
-            }
-            if (obstacleName == collision.gameObject.name && count > 3)
-            {
-                newRigidbody.AddForce(0, 0, -moveSpeed / 2 * Time.deltaTime, ForceMode.Impulse);
-                scoreChange.subScore(count * 10);
-                animator.SetTrigger("Trigger1");
-                SceneManager.LoadScene(Application.loadedLevel);
-            }
-            if(obstacleName != collision.gameObject.name)
-            {
-                count = 0;
-                if (collision.gameObject.tag == "Obstacle" && count == 0)
-                {
-                    newRigidbody.AddForce(0, 0, -moveSpeed / 2 * Time.deltaTime, ForceMode.Impulse);
-                    obstacleName = collision.gameObject.name;
-                    count++;
-                    scoreChange.subScore(10);
-                    animator.SetTrigger("Trigger1");
-
-                }
-            }
-        }*/
     }
 }

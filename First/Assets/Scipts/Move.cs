@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script for touch input
+
 public class Move : MonoBehaviour
 {
     private Rigidbody newRigidbody; 

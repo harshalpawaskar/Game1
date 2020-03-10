@@ -23,7 +23,7 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void ResumeGame()
+    public void ResumeGame()//Reseting the TimeScale
     {
         Time.timeScale = 1;
     }

@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
-            if (!PressEnterPanel.activeSelf)
+            if (!PressEnterPanel.activeSelf)//Activating the pause menu
             {
                 Time.timeScale = 0;
                 pause.SetActive(true);
@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour
             GameObject gameObject = GameObject.FindGameObjectWithTag("PressEnterPanel");
             gameObject.SetActive(false); 
         }*/
-        if (player.count == 3)
+        if (player.count == 3)//Ending the game on player.count=3
         {
             resultPanel.SetActive(true);
             if (location.position.z < endLine)
