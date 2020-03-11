@@ -9,22 +9,18 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public GameObject moveButtons;
-
     public GameObject pause;
-
     public GameObject PressEnterPanel;
-
     public PlayerMovement player;
-
     public Transform location;
-
     public WonOrLost wonOrLost;
-
     public GameObject resultPanel;
-
     public Text highScore;
-
     public int endLine;
+    public GameObject[] obstacles;
+    public float[] zPositions;
+    private int[] randomNoArray = new int[15];
+    private int[] tempArray = new int[15];
 
     private void Awake()
     {
@@ -34,6 +30,9 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Game Started!!!");
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+            RearrangeObstacles();
         highScore.text = PlayerPrefs.GetFloat("HighScore").ToString();
     }
 
@@ -71,6 +70,35 @@ public class GameController : MonoBehaviour
             wonOrLost.ShowResult(true);
             moveButtons.SetActive(false);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
+    }
+
+    public void RearrangeObstacles()
+    {
+        GenerateRandomArray();
+        for (int i = 0; i < 15; i++)
+        {
+            Vector3 tempPos = obstacles[i].transform.position;
+            float pos = zPositions[randomNoArray[i]];
+            tempPos.z = pos;
+            obstacles[i].transform.position = tempPos;
+        }
+    }
+
+    public void GenerateRandomArray()
+    {
+        System.Random random = new System.Random();
+        int count = 15;
+        int max = 15;
+        for (int i = 0; i < 15; i++)
+            tempArray[i] = i;
+        for (int i = 0; i < max; i++)
+        {
+            int j = random.Next(0, count - 1);
+            randomNoArray[i] = tempArray[j];
+            for (int k = j; k < count - 1; k++)
+                tempArray[k] = tempArray[k + 1];
+            count--;
         }
     }
 }

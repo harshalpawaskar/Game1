@@ -4192,7 +4192,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 34.5
+  far clip plane: 40
   field of view: 68.8
   orthographic: 0
   orthographic size: 5
@@ -6076,6 +6076,8 @@ MonoBehaviour:
   resultPanel: {fileID: 645734343}
   highScore: {fileID: 1255908697}
   endLine: 610
+  obstacles: []
+  zPositions: []
 --- !u!1 &1691947989
 GameObject:
   m_ObjectHideFlags: 0
