@@ -31,9 +31,9 @@ public class PlayerMovement : MonoBehaviour
     {
         newRigidbody.AddForce(0, 0, moveSpeed * Time.deltaTime);
         if (Input.GetKey(KeyCode.LeftArrow))
-            newRigidbody.AddForce(-2750 * Time.deltaTime, 0, 0);
+            newRigidbody.AddForce(-2600 * Time.deltaTime, 0, 0);
         if (Input.GetKey(KeyCode.RightArrow))
-            newRigidbody.AddForce(2750 * Time.deltaTime, 0, 0);
+            newRigidbody.AddForce(2600 * Time.deltaTime, 0, 0);
     }
 
     [Obsolete]
