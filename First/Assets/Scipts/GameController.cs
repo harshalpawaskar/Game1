@@ -33,7 +33,8 @@ public class GameController : MonoBehaviour
         Debug.Log("Game Started!!!");
         if (SceneManager.GetActiveScene().buildIndex == 5)
             RearrangeObstacles();
-        highScore.text = PlayerPrefs.GetFloat("HighScore").ToString();
+        int level = SceneManager.GetActiveScene().buildIndex;
+        highScore.text = PlayerPrefs.GetFloat("Level" + level.ToString()).ToString();
     }
 
     void Update()
@@ -47,12 +48,6 @@ public class GameController : MonoBehaviour
                 moveButtons.SetActive(false);
             }
         }
-        /*if (Input.GetKeyDown(KeyCode.Return))
-        {
-            player.enabled = true;
-            GameObject gameObject = GameObject.FindGameObjectWithTag("PressEnterPanel");
-            gameObject.SetActive(false); 
-        }*/
         if (player.count == 3)//Ending the game on player.count=3
         {
             resultPanel.SetActive(true);
@@ -69,7 +64,6 @@ public class GameController : MonoBehaviour
             resultPanel.SetActive(true);
             wonOrLost.ShowResult(true);
             moveButtons.SetActive(false);
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 

@@ -16,7 +16,8 @@ public class WonOrLost: MonoBehaviour
 
     public void ShowResult(bool result)
     {
-        PlayerPrefs.SetFloat("HighScore", int.Parse(highScore.text));
+        int level=SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetFloat("Level" + level.ToString(), int.Parse(highScore.text));
         totalScore.text = score.text;
         if (result)
         {
@@ -25,7 +26,7 @@ public class WonOrLost: MonoBehaviour
             if (int.Parse(highScore.text) <= int.Parse(totalScore.text))
             {
                 highScore.text = totalScore.text;
-                PlayerPrefs.SetFloat("HighScore", int.Parse(highScore.text));
+                PlayerPrefs.SetFloat("Level" + level.ToString(), int.Parse(highScore.text));
             }
             passedResultButtons.SetActive(true);
         }

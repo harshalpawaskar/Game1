@@ -6,20 +6,27 @@ public class Options : MonoBehaviour
 {
     public GameObject onButton;
     public GameObject offButton;
+    public float offColor;
 
     public void turnOn()
     {
         Color color = onButton.GetComponent<UnityEngine.UI.Image>().color;
-        color.a = 1;
+        color.a = 1f;
         onButton.GetComponent<UnityEngine.UI.Image>().color = color;
+        color = offButton.GetComponent<UnityEngine.UI.Image>().color;
+        color.a = offColor;
+        offButton.GetComponent<UnityEngine.UI.Image>().color = color;
+        PlayerPrefs.SetString("Vibrate", "true");
     }
 
-
-    [System.Obsolete]
-    public bool vibrateOnOrOff()
+    public void turnOff()
     {
-        if (onButton.active)
-            return true;
-        return false;
+        Color color = offButton.GetComponent<UnityEngine.UI.Image>().color;
+        color.a = 1f;
+        offButton.GetComponent<UnityEngine.UI.Image>().color = color;
+        color = onButton.GetComponent<UnityEngine.UI.Image>().color;
+        color.a = offColor;
+        onButton.GetComponent<UnityEngine.UI.Image>().color = color;
+        PlayerPrefs.SetString("Vibrate", "false");
     }
 }

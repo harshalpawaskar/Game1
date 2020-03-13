@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,12 +10,15 @@ public class PlayerMovement : MonoBehaviour
     public Score scoreChange;
     public GameObject resultPanel;
     public WonOrLost wonOrLost;
+    public Animator textAnimationAdd;//Add Score Animation
+    public Animator textAnimationSub;//Sub Score Animation
+    public Text subScoreText;
     public int count = 0;
     Animator animator;
+    private bool collided = false;
     private Rigidbody newRigidbody; 
     private bool firstStrike = false;
     private int obstacleNo;
-
     private void Awake()
     {
 
@@ -31,14 +35,21 @@ public class PlayerMovement : MonoBehaviour
     {
         newRigidbody.AddForce(0, 0, moveSpeed * Time.deltaTime);
         if (Input.GetKey(KeyCode.LeftArrow))
-            newRigidbody.AddForce(-2600 * Time.deltaTime, 0, 0);
+            newRigidbody.AddForce(-2500 * Time.deltaTime, 0, 0);
         if (Input.GetKey(KeyCode.RightArrow))
-            newRigidbody.AddForce(2600 * Time.deltaTime, 0, 0);
+            newRigidbody.AddForce(2500 * Time.deltaTime, 0, 0);
     }
 
     [Obsolete]
     void Update()
     {
+        if(collided)
+        {
+            animator.Play("Collide");
+            StartCoroutine(Coroutine1());
+            collided = false;
+        }
+
         FallFunction();
 
         //Checking if player has passed the obstacle or not
@@ -52,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
             if (hit.collider.tag == "Obstacle")
                 if (!firstStrike)
                 {
+                    textAnimationAdd.Play("TextAnimation");
                     scoreChange.addScore(100);
                     firstStrike = true;
                 }
@@ -61,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
             if (hit.collider.tag == "Obstacle")
                 if (!firstStrike)
                 {
+                    textAnimationAdd.Play("TextAnimation");
                     scoreChange.addScore(100);
                     firstStrike = true;
                 }
@@ -85,11 +98,23 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obstacle")
         {
+            collided = true; 
             obstacleNo = int.Parse(collision.gameObject.name);
             newRigidbody.AddForce(0, 0, -moveSpeed * (1.0f + newRigidbody.velocity.z / 20) * Time.deltaTime, ForceMode.Impulse);
             count++;
             scoreChange.subScore(count * obstacleNo * 10);
-            animator.SetTrigger("Trigger1");
+            subScoreText.text = "-" + (count * obstacleNo * 10).ToString();
+            //animator.Play("Collide");
+            if (PlayerPrefs.GetString("Vibrate") == "true")
+                Handheld.Vibrate();
         }
+    }
+
+    IEnumerator Coroutine1()
+    {
+        //Debug.Log("Start");
+        yield return new WaitForSeconds(0.5f);
+        textAnimationSub.Play("TextAnimation1");
+        //Debug.Log("Stop");
     }
 }

@@ -7,6 +7,15 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     public int level;
+    public Options options;
+
+    void Start()
+    {
+        if (PlayerPrefs.GetString("Vibrate") == "true")
+            options.turnOn();
+        if (PlayerPrefs.GetString("Vibrate") == "false")
+            options.turnOff();
+    }
 
     public void PlayLevel()
     {
